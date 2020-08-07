@@ -33,6 +33,7 @@ body {
     nav {
       width: 100%;
       display: flex;
+      flex-flow: column nowrap;
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
@@ -40,14 +41,14 @@ body {
       background: white;
       border-bottom: 1px solid $color-1;
 
-      .nav-bar {
+      .nav-top {
         width: 700px;
         height: 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
-        .nav-right {
+        .nav-top-right {
           width: 100px;
           height: 50px;
           display: flex;
@@ -60,6 +61,24 @@ body {
             &:hover {
               color: black;
             }
+          }
+        }
+      }
+
+      .nav-bottom {
+        width: 700px;
+        height: 30px;
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+
+        a {
+          color: $color-2;
+          margin-right: 20px;
+
+          &:hover {
+            color: black;
           }
         }
       }

@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <Context.Provider value={{loading, setLoading, user, setUser}}>
-      <Nav/>
+      <Nav user={user}/>
       <main>
         <Router/>
       </main>
