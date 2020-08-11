@@ -1,0 +1,12 @@
+@import '../../scss/variables';
+
+.cal-bar {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 110px;
+  display: flex;
+  overflow-y: hidden;
+  padding: 5px 0;
+  box-sizing: border-box;
+}
