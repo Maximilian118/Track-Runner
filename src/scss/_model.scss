@@ -1,12 +1,16 @@
 @import "./variables";
 
+.flex-row {
+  width: 100%;
+  display: flex;
+}
+
 .model {
   width: 343px;
   min-height: 50px;
   height: fit-content;
   display: flex;
   flex-flow: column nowrap;
-  border-radius: 6px;
   background: white;
   overflow: hidden;
   box-sizing: border-box;

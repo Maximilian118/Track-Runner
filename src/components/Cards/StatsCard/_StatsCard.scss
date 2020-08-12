@@ -1,0 +1,27 @@
+@import '../../../scss/variables';
+
+.stats-card {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+
+  .stat {
+    width: 33.33%;
+    height: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid $color-1;
+
+    &:nth-child(n+2) {
+      border-left: 1px solid $color-1;
+    }
+
+    &:nth-child(3n+1) {
+      border-left: none;
+    }
+  }
+}

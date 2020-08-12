@@ -1,0 +1,29 @@
+@import '../../../scss/variables';
+
+.track-card {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  background: white;
+
+  .top {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 10px;
+  }
+
+  .img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      align-self: center;
+    }
+  }
+}
