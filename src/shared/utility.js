@@ -78,31 +78,33 @@ export const defaultCal = () => {
       location: "",
       img: "",
       stats: {
-        Country: "",
-        Turns: "",
-        Distance: "",
-        MinElev: "",
-        MaxElev: "",
-        MaxGrad: "",
+        country: {name: "Country", value: "Spain"},
+        turns: {name: "Turns", value: 0},
+        distance: {name: "Distance", value: 0, unit: "km"},
+        minElev: {name: "Min Elev", value: 0, unit: "m"},
+        maxElev: {name: "Max Elev", value: 0, unit: "m"},
+        maxGrad: {name: "Max Grad", value: 0, unit: "%"},
       },
+      elevation: [],
       events: [],
     })
   }
 
-  return calArr.map(date => {
+  return calArr.map((date, i) => {
     if (moment(date.date).isAfter("2020-08-10T00:00:00+00:00") && moment(date.date).isBefore("2020-08-17T00:00:00+00:00")) {
       return {
         ...date, 
         location: "Barcelona-Catalunya", 
         img: "https://pbs.twimg.com/profile_images/899536171092541440/9vpVeaIl_400x400.jpg",
         stats: {
-          Country: "Spain",
-          Turns: "16",
-          Distance: "4.65km",
-          MinElev: "124m",
-          MaxElev: "150m",
-          MaxGrad: "5.9%",
+          country: {name: "Country", value: "Spain"},
+          turns: {name: "Turns", value: 16},
+          distance: {name: "Distance", value: 4.65, unit: "km"},
+          minElev: {name: "Min Elev", value: 124, unit: "m"},
+          maxElev: {name: "Max Elev", value: 150, unit: "m"},
+          maxGrad: {name: "Max Grad", value: 5.9, unit: "%"},
         },
+        elevation: [132, 133, 133, 134, 134, 131, 128, 126, 124, 125, 126, 128, 130, 133, 135, 137, 140, 143, 145, 145, 144, 139, 135, 129, 126, 130, 135, 140, 145, 145, 145, 143, 142, 140, 139, 142, 145, 147, 150, 147, 145, 141, 138, 134, 132, 131, 130],
       }
     } else if (moment(date.date).isAfter("2020-08-24T00:00:00+00:00") && moment(date.date).isBefore("2020-08-31T00:00:00+00:00")) {
       return {...date, location: "Spa-Francorchamps", img: "https://www.tourismejalhaysart.be/wp-content/uploads/2016/03/spa-francorchamps.jpg"}
@@ -117,7 +119,7 @@ export const defaultCal = () => {
     } else if (moment(date.date).isAfter("2020-10-12T00:00:00+00:00") && moment(date.date).isBefore("2020-10-19T00:00:00+00:00")) {
       return {...date, location: "Algarve International Circuit", img: "https://media-exp1.licdn.com/dms/image/C4E0BAQH9cYTQDhs7MA/company-logo_200_200/0?e=2159024400&v=beta&t=GCCQOYnxa58L9EeTdJyatqPY778PUM3LYombb0Z_heU"}
     } else if (moment(date.date).isAfter("2020-10-26T00:00:00+00:00") && moment(date.date).isBefore("2020-11-02T00:00:00+00:00")) {
-      return {...date, location: "Autodromo Enzo e Dino Ferrari", img: "https://lh3.googleusercontent.com/proxy/5GUvZGHNqzUEZqlxiu4Lvz_us1s9XDxPTRFkAE0uop9fjIjjsRORdJ_q4fzL_qTf8xRhZ5aeWCnObtKPFHWQDeyodnj32hJ7E7_qyUS55DxonZM4YL7UXa_89wk_aB8IU_CNNgA"}
+      return {...date, location: "Autodromo Enzo e Dino Ferrari", img: "https://s3.amazonaws.com/gt7sp-prod/decal/44/93/12/5837329235603129344_1.png"}
     } else if (moment(date.date).isAfter("2020-11-09T00:00:00+00:00") && moment(date.date).isBefore("2020-11-16T00:00:00+00:00")) {
       return {...date, location: "Shanghai International Circuit", img: "https://cdn.shopify.com/s/files/1/2318/5725/products/shanghailogo_1024x1024.jpg?v=1544215890"}
     } else if (moment(date.date).isAfter("2020-11-16T00:00:00+00:00") && moment(date.date).isBefore("2020-11-23T00:00:00+00:00")) {

@@ -2,6 +2,7 @@ import React from 'react'
 import './_TrackCard.scss'
 import moment from 'moment'
 import StatsCard from '../StatsCard'
+import TrackElevCard from '../TrackElevCard'
 
 const TrackCard = ({ calendar, style }) => {
   let track = { sameDay: false, date: moment().format(), location: "", img: "" }
@@ -20,6 +21,7 @@ const TrackCard = ({ calendar, style }) => {
         <img alt="The current or next track" src={track.img}/>
       </div>
       {track.stats && <StatsCard stats={track.stats}/>}
+      {track.elevation && <TrackElevCard track={track}/>}
     </div>
   )
 }

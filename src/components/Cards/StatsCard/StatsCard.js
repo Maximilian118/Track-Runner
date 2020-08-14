@@ -3,10 +3,10 @@ import './_StatsCard.scss'
 
 const StatsCard = ({ stats, style }) => 
   <div className="stats-card" style={style}>
-    {Object.entries(stats).map((obj, i) => (
+    {Object.values(stats).map((stat, i) => (
       <div key={i} className="stat">
-        <h6>{obj[0]}</h6>
-        <h5>{obj[1]}</h5>
+        <h6>{stat.name}</h6>
+        <h5>{`${stat.value}${stat.unit ? stat.unit : ``}`}</h5>
       </div>
     ))}
   </div>
