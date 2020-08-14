@@ -1,5 +1,6 @@
 .track-elev-card {
   width: 100%;
+  height: 130px;
   display: flex;
   align-items: flex-end;
   position: relative;
@@ -14,6 +15,5 @@
     height: 0;
     width: 100%;
     background-color: red;
-    margin-top: 20px;
   }
 }

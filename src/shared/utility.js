@@ -104,30 +104,83 @@ export const defaultCal = () => {
           maxElev: {name: "Max Elev", value: 150, unit: "m"},
           maxGrad: {name: "Max Grad", value: 5.9, unit: "%"},
         },
-        elevation: [132, 133, 133, 134, 134, 131, 128, 126, 124, 125, 126, 128, 130, 133, 135, 137, 140, 143, 145, 145, 144, 139, 135, 129, 126, 130, 135, 140, 145, 145, 145, 143, 142, 140, 139, 142, 145, 147, 150, 147, 145, 141, 138, 134, 132, 131, 130],
+        elevation: [132, 133, 133, 134, 134, 131, 128, 126, 124, 125, 126, 128, 130, 133, 135, 137, 140, 143, 145, 145, 144, 139, 135, 129, 126, 130, 135, 140, 145, 145, 144, 143, 142, 140, 139, 142, 145, 148, 150, 147, 145, 141, 138, 134, 132, 131, 130],
       }
     } else if (moment(date.date).isAfter("2020-08-24T00:00:00+00:00") && moment(date.date).isBefore("2020-08-31T00:00:00+00:00")) {
-      return {...date, location: "Spa-Francorchamps", img: "https://www.tourismejalhaysart.be/wp-content/uploads/2016/03/spa-francorchamps.jpg"}
+      return {
+        ...date, 
+        location: "Spa-Francorchamps", 
+        img: "https://www.tourismejalhaysart.be/wp-content/uploads/2016/03/spa-francorchamps.jpg",
+        stats: {
+          country: {name: "Country", value: "Belgium"},
+          turns: {name: "Turns", value: 20},
+          distance: {name: "Distance", value: 6.9, unit: "km"},
+          minElev: {name: "Min Elev", value: 366, unit: "m"},
+          maxElev: {name: "Max Elev", value: 467, unit: "m"},
+          maxGrad: {name: "Max Grad", value: 23.1, unit: "%"},
+        },
+        elevation: [416, 417, 419, 421, 424, 415, 405, 395, 389, 384, 395, 405, 415, 420, 425, 430, 435, 439, 444, 446, 449, 454, 459, 464, 467, 466, 463, 459, 453, 448, 442, 433, 422, 418, 410, 405, 398, 389, 382, 375, 369, 368, 369, 372, 376, 378, 376, 376, 372, 366, 367, 370, 375, 377, 380, 382, 384, 386, 389, 391, 393, 396, 399, 401, 403, 406, 409, 412, 414, 416],
+      }
     } else if (moment(date.date).isAfter("2020-08-31T00:00:00+00:00") && moment(date.date).isBefore("2020-09-07T00:00:00+00:00")) {
-      return {...date, location: "Autodromo Nazionale Monza", img: "https://upload.wikimedia.org/wikipedia/en/f/f1/Autodromo_Nazionale_Monza_circuit_logo.png"}
+      return {
+        ...date, 
+        location: "Autodromo Nazionale Monza", 
+        img: "https://upload.wikimedia.org/wikipedia/en/f/f1/Autodromo_Nazionale_Monza_circuit_logo.png",
+      }
     } else if (moment(date.date).isAfter("2020-09-07T00:00:00+00:00") && moment(date.date).isBefore("2020-09-14T00:00:00+00:00")) {
-      return {...date, location: "Mugello Circuit", img: "https://book4track.com/pub/media/lof/seller/Mugello_Circuit.jpg"}
+      return {
+        ...date, 
+        location: "Mugello Circuit", 
+        img: "https://book4track.com/pub/media/lof/seller/Mugello_Circuit.jpg",
+      }
     } else if (moment(date.date).isAfter("2020-09-21T00:00:00+00:00") && moment(date.date).isBefore("2020-09-28T00:00:00+00:00")) {
-      return {...date, location: "Sochi Autodrom", img: "https://static.tildacdn.com/tild3263-3338-4537-b037-653430326665/2018-05-17_09-35-13.png"}
+      return {
+        ...date, 
+        location: "Sochi Autodrom", 
+        img: "https://static.tildacdn.com/tild3263-3338-4537-b037-653430326665/2018-05-17_09-35-13.png",
+      }
     } else if (moment(date.date).isAfter("2020-10-05T00:00:00+00:00") && moment(date.date).isBefore("2020-10-12T00:00:00+00:00")) {
-      return {...date, location: "Nürburgring", img: "https://pbs.twimg.com/profile_images/2504045977/wsb13l05s8wpb07jll89_400x400.jpeg"}
+      return {
+        ...date, 
+        location: "Nürburgring", 
+        img: "https://pbs.twimg.com/profile_images/2504045977/wsb13l05s8wpb07jll89_400x400.jpeg",
+      }
     } else if (moment(date.date).isAfter("2020-10-12T00:00:00+00:00") && moment(date.date).isBefore("2020-10-19T00:00:00+00:00")) {
-      return {...date, location: "Algarve International Circuit", img: "https://media-exp1.licdn.com/dms/image/C4E0BAQH9cYTQDhs7MA/company-logo_200_200/0?e=2159024400&v=beta&t=GCCQOYnxa58L9EeTdJyatqPY778PUM3LYombb0Z_heU"}
+      return {
+        ...date, 
+        location: "Algarve International Circuit", 
+        img: "https://media-exp1.licdn.com/dms/image/C4E0BAQH9cYTQDhs7MA/company-logo_200_200/0?e=2159024400&v=beta&t=GCCQOYnxa58L9EeTdJyatqPY778PUM3LYombb0Z_heU",
+      }
     } else if (moment(date.date).isAfter("2020-10-26T00:00:00+00:00") && moment(date.date).isBefore("2020-11-02T00:00:00+00:00")) {
-      return {...date, location: "Autodromo Enzo e Dino Ferrari", img: "https://s3.amazonaws.com/gt7sp-prod/decal/44/93/12/5837329235603129344_1.png"}
+      return {
+        ...date, 
+        location: "Autodromo Enzo e Dino Ferrari", 
+        img: "https://s3.amazonaws.com/gt7sp-prod/decal/44/93/12/5837329235603129344_1.png",
+      }
     } else if (moment(date.date).isAfter("2020-11-09T00:00:00+00:00") && moment(date.date).isBefore("2020-11-16T00:00:00+00:00")) {
-      return {...date, location: "Shanghai International Circuit", img: "https://cdn.shopify.com/s/files/1/2318/5725/products/shanghailogo_1024x1024.jpg?v=1544215890"}
+      return {
+        ...date, 
+        location: "Shanghai International Circuit", 
+        img: "https://cdn.shopify.com/s/files/1/2318/5725/products/shanghailogo_1024x1024.jpg?v=1544215890",
+      }
     } else if (moment(date.date).isAfter("2020-11-16T00:00:00+00:00") && moment(date.date).isBefore("2020-11-23T00:00:00+00:00")) {
-      return {...date, location: "Hanoi Street Circuit", img: "https://ih1.redbubble.net/image.1228383534.7848/fposter,small,wall_texture,product,750x1000.jpg"}
+      return {
+        ...date, 
+        location: "Hanoi Street Circuit", 
+        img: "https://ih1.redbubble.net/image.1228383534.7848/fposter,small,wall_texture,product,750x1000.jpg",
+      }
     } else if (moment(date.date).isAfter("2020-11-30T00:00:00+00:00") && moment(date.date).isBefore("2020-12-07T00:00:00+00:00")) {
-      return {...date, location: "Bahrain International Circuit", img: "https://upload.wikimedia.org/wikipedia/en/d/d1/Bahrain_International_Circuit_logo.png"}
+      return {
+        ...date, 
+        location: "Bahrain International Circuit", 
+        img: "https://upload.wikimedia.org/wikipedia/en/d/d1/Bahrain_International_Circuit_logo.png",
+      }
     } else if (moment(date.date).isAfter("2020-12-07T00:00:00+00:00") && moment(date.date).isBefore("2020-12-14T00:00:00+00:00")) {
-      return {...date, location: "Yas Marina Circuit", img: "https://pictures.attention-ngn.com//portal/24/377840/logo/1455539094.7892_114_o.jpg"}
+      return {
+        ...date, 
+        location: "Yas Marina Circuit", 
+        img: "https://pictures.attention-ngn.com//portal/24/377840/logo/1455539094.7892_114_o.jpg",
+      }
     } else {
       return date
     }
