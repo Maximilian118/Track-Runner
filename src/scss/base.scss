@@ -13,6 +13,12 @@ a {
   color: black;
 }
 
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
 body {
   margin: 0;
   padding: 0;
