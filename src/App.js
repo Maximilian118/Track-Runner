@@ -8,7 +8,6 @@ import { checkLocalStorage } from './shared/localStorage'
 import Spinner from './components/Spinner'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import blue from '@material-ui/core/colors/blue';
 
 const Context = React.createContext()
 
@@ -16,11 +15,6 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: 'Ubuntu',
     fontWeightRegular: 300,
-  },
-  palette: {
-    primary: {
-      main: blue[700],
-    },
   },
 });
 
