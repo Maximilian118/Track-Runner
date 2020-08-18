@@ -54,9 +54,12 @@
     }
 
     .formError {
-      height: 78px;
-      margin-top: 10px;
+      height: 88px;
       color: $color-2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
   }
 }

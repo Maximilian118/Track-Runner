@@ -26,21 +26,24 @@ const Splash = () => {
         </div>
         <div className="bottom">
           <TextField 
-            required 
+            required
+            error={formError.includes("name")}
             label="Name"
             name="name"
             style={{ width: "100%", marginBottom: 20 }} 
             onChange={e => updateForm(e, form, setForm, setFormError)}
           />
           <TextField 
-            required 
+            required
+            error={formError.includes("email")}
             label="Email"
             name="email"
             style={{ width: "100%", marginBottom: 20 }} 
             onChange={e => updateForm(e, form, setForm, setFormError)}
           />
           <TextField 
-            required 
+            required
+            error={formError.includes("Your password")}
             label="Password" 
             name="password"
             type="password" 
@@ -48,7 +51,8 @@ const Splash = () => {
             onChange={e => updateForm(e, form, setForm, setFormError)}
           />
           <TextField 
-            required 
+            required
+            error={formError.includes("do not match")}
             label="Password Confirm" 
             name="passConfirm"
             type="password"

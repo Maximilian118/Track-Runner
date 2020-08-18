@@ -14,12 +14,12 @@ export const updateForm = (e, form, setForm, setFormError) => {
     case "password": if (/^([a-zA-Z0-9!?_<>"'$£%^&(){};:+=*#]{8,20})$/.test(e.target.value) || e.target.value.trim() === "") {
       setFormError("")
     } else {
-      setFormError("Your Password must have at least one letter and one number.")
+      setFormError("Your password must have at least one letter and one number.")
     }; break
     case "passConfirm": if (e.target.value === form.password || e.target.value.trim() === "") {
       setFormError("")
     } else {
-      setFormError("Passwords do not match.")
+      setFormError("passwords do not match.")
     }; break
     default: setFormError("")
   }
