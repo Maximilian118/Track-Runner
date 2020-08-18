@@ -24,3 +24,15 @@ export const updateForm = (e, form, setForm, setFormError) => {
     default: setFormError("")
   }
 }
+
+export const formValid = (form, formError) => {
+  for (const keys in form) {
+    if (form[keys] === "") {
+      return false
+    } else if (form[keys] === false) {
+      return false
+    }
+  }
+
+  return formError ? false : true
+}

@@ -5,7 +5,7 @@ import CalendarBar from '../components/CalendarBar'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-import { updateForm } from '../shared/formValidation'
+import { updateForm, formValid } from '../shared/formValidation'
 
 const Splash = () => {
   const { user } = useContext(Context)
@@ -15,6 +15,7 @@ const Splash = () => {
     email: "",
     password: "",
     passConfirm: "",
+    checkBox: false,
   })
 
   return (
@@ -53,7 +54,7 @@ const Splash = () => {
           <TextField 
             required
             error={formError.includes("do not match")}
-            label="Password Confirm" 
+            label="Password Check" 
             name="passConfirm"
             type="password"
             style={{ width: "100%", marginBottom: 20 }} 
@@ -65,9 +66,13 @@ const Splash = () => {
                 <Link to="/termsandconditions">
                   <h6 className="terms-and-conditions">I agree to the <u><strong>Terms and Conditions</strong></u></h6>
                 </Link>
-                <Checkbox color="default"/>
+                <Checkbox 
+                  color="default" 
+                  checked={form.checkBox} 
+                  onClick={() => setForm({...form, checkBox: !form.checkBox})}
+                />
               </div>
-              <Button disabled style={{ width: 100 }}>Sign Up</Button>
+              <Button disabled={!formValid(form, formError)} style={{ width: 100 }}>Sign Up</Button>
             </>
           }
         </div>
