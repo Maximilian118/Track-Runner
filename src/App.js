@@ -32,7 +32,7 @@ const App = () => {
         <Nav user={user}/>
         <CalendarBar calendar={user.calendar}/>
         <main>
-          {loading ? <Spinner/> : <Router/>}
+          {loading ? <Spinner/> : <Router user={user}/>}
         </main>
         <Footer/>
       </ThemeProvider>

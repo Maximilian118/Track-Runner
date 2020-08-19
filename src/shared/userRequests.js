@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { logInSuccess } from './localStorage'
-import { useTokens } from './utility'
+import { useTokens, populatedUser } from './utility'
 
 export const createUser = (form, user, setUser, setLoading) => {
   setLoading(true)
@@ -24,7 +24,7 @@ export const createUser = (form, user, setUser, setLoading) => {
     `
   }).then(async (res) => {
     if (res.data.errors) {
-      process.env.NODE_ENV === 'development' && console.log(`CreateUser: ${res.data.errors[0].message}`)
+      process.env.NODE_ENV === 'development' && console.log(`createUser: ${res.data.errors[0].message}`)
     } else {
       setUser(logInSuccess({
         ...res.data.data.createUser,
@@ -34,12 +34,47 @@ export const createUser = (form, user, setUser, setLoading) => {
         following: [],
         calendar: user.calendar,
       }))
-      
+
       process.env.NODE_ENV === 'development' && console.log(res)
     }
     setLoading(false)
   }).catch(err => {
-    process.env.NODE_ENV === 'development' && console.log(`CreateUser: ${err.response.data.errors[0].message}`)
+    process.env.NODE_ENV === 'development' && console.log(`createUser: ${err.response.data.errors[0].message}`)
+    setLoading(false)
+  })
+}
+
+export const login = (form, user, setUser, setLoading, history) => {
+  setLoading(true)
+
+  axios.post('', {
+    variables: {
+      email: form.email,
+      password: form.password,
+    },
+    query: `
+      query Login($email: String!, $password: String) {
+        login(email: $email, password: $password) {
+          ${populatedUser}
+        }
+      }
+    `
+  }).then(res => {
+    if (res.data.errors) {
+      process.env.NODE_ENV === 'development' && console.log(`login: ${res.data.errors[0].message}`)
+    } else {
+      setUser(logInSuccess({
+        ...res.data.data.login,
+        token: useTokens(res.data.data.login.tokens, user),
+        calendar: res.data.data.login.calendar ? res.data.data.login.calendar : user.calendar,
+      }))
+
+      history.push("/")
+      process.env.NODE_ENV === 'development' && console.log(res)
+    }
+    setLoading(false)
+  }).catch(err => {
+    process.env.NODE_ENV === 'development' && console.log(`login: ${err.response.data.errors[0].message}`)
     setLoading(false)
   })
 }

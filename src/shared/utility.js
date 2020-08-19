@@ -66,6 +66,24 @@ export const populatedUser = `
       profile_picture
     }
   }
+  following {
+    name
+    email
+    profile_picture
+    posts {
+      _id
+      title
+      description
+      img
+      created_at
+      updated_at
+      author {
+        _id
+        name
+        profile_picture
+      }
+    }
+  }
 `
 
 // Return calendar array with default location and img data.
