@@ -1,12 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
-const Nav = ({ user }) => 
+const Nav = ({ user, history }) => 
   <nav>
     <div className="nav-top">
       <Link to="/"><h1>Track-Runner</h1></Link>
       <div className="nav-top-right">
-        <Link to="/login"><h5>Login</h5></Link>
+        {history.location.pathname === "/" ? 
+          <Link to="/login"><h5>Login</h5></Link> :
+          <Link to="/"><h5>Create An Account</h5></Link>
+        }
       </div>
     </div>
     {user.token && 
@@ -19,4 +22,4 @@ const Nav = ({ user }) =>
     }
   </nav>
 
-export default Nav
+export default withRouter(Nav) 
