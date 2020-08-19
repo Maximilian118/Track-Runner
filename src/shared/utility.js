@@ -90,7 +90,7 @@ export const defaultCal = () => {
     })
   }
 
-  return calArr.map((date, i) => {
+  return calArr.map(date => {
     if (moment(date.date).isAfter("2020-08-10T00:00:00+00:00") && moment(date.date).isBefore("2020-08-17T00:00:00+00:00")) {
       return {
         ...date, 

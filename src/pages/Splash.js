@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { Context } from '../App'
 import { Link } from 'react-router-dom'
-import CalendarBar from '../components/CalendarBar'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -26,7 +25,6 @@ const Splash = () => {
 
   return (
     <>
-      <CalendarBar calendar={user.calendar}/>
       <form className="model center" onSubmit={e => onSubmitHandler(e)}>
         <div className="top">
           <h3>Create An Account</h3>

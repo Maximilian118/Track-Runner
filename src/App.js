@@ -8,6 +8,7 @@ import { checkLocalStorage } from './shared/localStorage'
 import Spinner from './components/Spinner'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import CalendarBar from './components/CalendarBar'
 
 const Context = React.createContext()
 
@@ -29,6 +30,7 @@ const App = () => {
     <Context.Provider value={{loading, setLoading, user, setUser}}>
       <ThemeProvider theme={theme}>
         <Nav user={user}/>
+        <CalendarBar calendar={user.calendar}/>
         <main>
           {loading ? <Spinner/> : <Router/>}
         </main>
