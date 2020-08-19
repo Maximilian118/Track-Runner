@@ -6,9 +6,10 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import { updateForm, formValid } from '../shared/formValidation'
+import { createUser } from '../shared/userRequests'
 
 const Splash = () => {
-  const { user } = useContext(Context)
+  const { user, setUser, setLoading } = useContext(Context)
   const [ formError, setFormError ] = useState("")
   const [ form, setForm ] = useState({
     name: "",
@@ -18,10 +19,15 @@ const Splash = () => {
     checkBox: false,
   })
 
+  const onSubmitHandler = e => {
+    e.preventDefault()
+    createUser(form, user, setUser, setLoading)
+  }
+
   return (
     <>
       <CalendarBar calendar={user.calendar}/>
-      <form className="model center">
+      <form className="model center" onSubmit={e => onSubmitHandler(e)}>
         <div className="top">
           <h3>Create An Account</h3>
         </div>
@@ -72,7 +78,9 @@ const Splash = () => {
                   onClick={() => setForm({...form, checkBox: !form.checkBox})}
                 />
               </div>
-              <Button disabled={!formValid(form, formError)} style={{ width: 100 }}>Sign Up</Button>
+              <Button type="submit" disabled={!formValid(form, formError)}style={{ padding: "6px 20px" }}>
+                Sign Up
+              </Button>
             </>
           }
         </div>
