@@ -5,11 +5,15 @@ import Notfound from "./pages/NotFound"
 import Splash from "./pages/Splash"
 import Login from "./pages/Login"
 import Home from './pages/Home'
+import Settings from './pages/Settings'
 
 const Router = ({ user }) => 
   <Switch>
     {user.token ? 
-      <Route exact path="/" component={Home}/> 
+      <>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/settings" component={Settings}/>
+      </>
     : 
       <>
         <Route exact path="/login" component={Login}/>

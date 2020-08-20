@@ -76,7 +76,7 @@ const Splash = () => {
                   onClick={() => setForm({...form, checkBox: !form.checkBox})}
                 />
               </div>
-              <Button type="submit" disabled={!formValid(form, formError)}style={{ padding: "6px 20px" }}>
+              <Button type="submit" disabled={!formValid(form, formError)} style={{ padding: "6px 20px" }}>
                 Sign Up
               </Button>
             </>
