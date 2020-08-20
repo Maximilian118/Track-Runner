@@ -22,4 +22,4 @@ const Nav = ({ user, history }) =>
     }
   </nav>
 
-export default withRouter(Nav) 
+export default withRouter(Nav)
