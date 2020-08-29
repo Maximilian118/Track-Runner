@@ -9,17 +9,10 @@ import Settings from './pages/Settings'
 
 const Router = ({ user }) => 
   <Switch>
-    {user.token ? 
-      <>
-        <Route exact path="/" component={Home}/>
-        <Route exact path="/settings" component={Settings}/>
-      </>
-    : 
-      <>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/" component={Splash}/>
-      </>
-    }
+    {user.token && <Route exact path="/" component={Home}/>}
+    {user.token && <Route exact path="/settings" component={Settings}/>}
+    {!user.token && <Route exact path="/" component={Splash}/>}
+    {!user.token && <Route exact path="/login" component={Login}/>}
     <Route component={Notfound}/>
   </Switch>
 
