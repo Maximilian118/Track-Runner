@@ -46,6 +46,17 @@ export const checkAuth = (res, setUser, history) => {
   }
 }
 
+// Get the initials of the user.
+export const getInitials = user => {
+  let names = user.name.split(' '),
+    initials = names[0].substring(0, 1).toUpperCase()
+  
+  if (names.length > 1) {
+    initials += names[names.length - 1].substring(0, 1).toUpperCase()
+  }
+  return initials
+}
+
 // User population template literal.
 export const populatedUser = `
   _id
