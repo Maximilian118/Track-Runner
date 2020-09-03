@@ -155,6 +155,14 @@ export const defaultCal = () => {
         ...date, 
         location: "Autodromo Nazionale Monza", 
         img: "https://upload.wikimedia.org/wikipedia/en/f/f1/Autodromo_Nazionale_Monza_circuit_logo.png",
+        stats: {
+          country: {name: "Country", value: "Italy"},
+          turns: {name: "Turns", value: 11},
+          distance: {name: "Distance", value: 5.7, unit: "km"},
+          minElev: {name: "Min Elev", value: 140, unit: "m"},
+          maxElev: {name: "Max Elev", value: 153, unit: "m"},
+          maxGrad: {name: "Max Grad", value: 2.4, unit: "%"},
+        },
       }
     } else if (moment(date.date).isAfter("2020-09-07T00:00:00+00:00") && moment(date.date).isBefore("2020-09-14T00:00:00+00:00")) {
       return {
