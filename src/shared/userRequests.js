@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { logInSuccess } from './localStorage'
-import { useTokens, populatedUser } from './utility'
+import { logInSuccess, logout } from './localStorage'
+import { useTokens, populatedUser, headers } from './utility'
 
 export const createUser = (form, user, setUser, setLoading) => {
   setLoading(true)
@@ -24,7 +24,7 @@ export const createUser = (form, user, setUser, setLoading) => {
     `
   }).then(async (res) => {
     if (res.data.errors) {
-      process.env.NODE_ENV === 'development' && console.log(`createUser: ${res.data.errors[0].message}`)
+      process.env.NODE_ENV === 'development' && console.log(res.data.errors[0].message)
     } else {
       setUser(logInSuccess({
         ...res.data.data.createUser,
@@ -37,9 +37,10 @@ export const createUser = (form, user, setUser, setLoading) => {
 
       process.env.NODE_ENV === 'development' && console.log(res)
     }
+
     setLoading(false)
   }).catch(err => {
-    process.env.NODE_ENV === 'development' && console.log(`createUser: ${err.response.data.errors[0].message}`)
+    process.env.NODE_ENV === 'development' && console.log(err.response.data.errors[0].message)
     setLoading(false)
   })
 }
@@ -61,7 +62,7 @@ export const login = (form, user, setUser, setLoading, history) => {
     `
   }).then(res => {
     if (res.data.errors) {
-      process.env.NODE_ENV === 'development' && console.log(`login: ${res.data.errors[0].message}`)
+      process.env.NODE_ENV === 'development' && console.log(res.data.errors[0].message)
     } else {
       setUser(logInSuccess({
         ...res.data.data.login,
@@ -72,9 +73,41 @@ export const login = (form, user, setUser, setLoading, history) => {
       history.push("/")
       process.env.NODE_ENV === 'development' && console.log(res)
     }
+
     setLoading(false)
   }).catch(err => {
-    process.env.NODE_ENV === 'development' && console.log(`login: ${err.response.data.errors[0].message}`)
+    process.env.NODE_ENV === 'development' && console.log(err.response.data.errors[0].message)
+    setLoading(false)
+  })
+}
+
+export const deleteUser = (user, setUser, setLoading, history) => {
+  setLoading(true)
+
+  axios.post('', {
+    variables: {
+      _id: user._id,
+    },
+    query: `
+      mutation DeleteUser($_id: String!) {
+        deleteUser(_id: $_id) {
+          _id
+        }
+      }
+    `
+  }, {headers: headers(user.token)}).then(res => {
+    if (res.data.errors) {
+      process.env.NODE_ENV === 'development' && console.log(res.data.errors[0].message)
+    } else {
+      setUser(logout())
+
+      history.push("/")
+      process.env.NODE_ENV === 'development' && console.log(res)
+    }
+
+    setLoading(false)
+  }).catch(err => {
+    process.env.NODE_ENV === 'development' && console.log(err)
     setLoading(false)
   })
 }

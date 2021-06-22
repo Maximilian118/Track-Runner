@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import { Context } from '../App'
 import Button from '@material-ui/core/Button'
 import { logout } from '../shared/localStorage'
+import { deleteUser } from '../shared/userRequests'
 
 const Settings = ({ history }) => {
-  const { setUser } = useContext(Context)
+  const { user, setUser, setLoading } = useContext(Context)
 
   const logoutHandler = () => {
     setUser(logout())
@@ -14,7 +15,7 @@ const Settings = ({ history }) => {
   return (
     <>
       <Button onClick={() => logoutHandler()}>Logout</Button>
-      <Button>Delete Account</Button>
+      <Button onClick={() => deleteUser(user, setUser, setLoading, history)}>Delete Account</Button>
     </>
   )
 }
