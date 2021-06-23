@@ -3,7 +3,6 @@ import { Context } from '../App'
 import { Link } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
 import { updateForm, formValid } from '../shared/formValidation'
 import { createUser } from '../shared/userRequests'
 
@@ -15,7 +14,6 @@ const Splash = () => {
     email: "",
     password: "",
     passConfirm: "",
-    checkBox: false,
   })
 
   const onSubmitHandler = e => {
@@ -24,12 +22,12 @@ const Splash = () => {
   }
 
   return (
-    <>
-      <form className="model center" onSubmit={e => onSubmitHandler(e)}>
+    <div className="model-wrapper">
+      <form className="model" onSubmit={e => onSubmitHandler(e)}>
         <div className="top">
           <h3>Create An Account</h3>
         </div>
-        <div className="bottom">
+        <div className="middle">
           <TextField 
             required
             error={formError.includes("name")}
@@ -61,29 +59,20 @@ const Splash = () => {
             label="Password Check" 
             name="passConfirm"
             type="password"
-            style={{ width: "100%", marginBottom: 20 }} 
+            style={{ width: "100%" }} 
             onChange={e => updateForm(e, form, setForm, setFormError)}
           />
-          {formError ? <p className="formError">{formError}</p> :
-            <>
-              <div className="terms-and-conditions-wrapper">
-                <Link to="/termsandconditions">
-                  <h6 className="terms-and-conditions">I agree to the <u><strong>Terms and Conditions</strong></u></h6>
-                </Link>
-                <Checkbox 
-                  color="default" 
-                  checked={form.checkBox} 
-                  onClick={() => setForm({...form, checkBox: !form.checkBox})}
-                />
-              </div>
-              <Button type="submit" disabled={!formValid(form, formError)} style={{ padding: "6px 20px" }}>
-                Sign Up
-              </Button>
-            </>
-          }
+        </div>
+        <div className="bottom">
+          <Button type="submit" disabled={!formValid(form, formError)} className="form-btn">
+            Sign Up
+          </Button>
         </div>
       </form>
-    </>
+      <h6 className="model-outside-txt" style={{ marginTop: 10 }}>By creating in account you agree to the 
+        <Link to="terms-and-conditions"><strong>terms and conditions</strong></Link>
+      </h6>
+    </div>
   )
 }
 

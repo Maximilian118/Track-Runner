@@ -19,12 +19,12 @@ const Login = ({ history }) => {
   }
 
   return (
-    <>
-      <form className="model center" onSubmit={e => onSubmitHandler(e)}>
+    <div className="model-wrapper">
+      <form className="model" onSubmit={e => onSubmitHandler(e)}>
         <div className="top">
           <h3>Login</h3>
         </div>
-        <div className="bottom">
+        <div className="middle">
           <TextField 
             required
             error={formError.includes("email")}
@@ -39,17 +39,17 @@ const Login = ({ history }) => {
             label="Password" 
             name="password"
             type="password" 
-            style={{ width: "100%", marginBottom: 20 }} 
+            style={{ width: "100%" }} 
             onChange={e => updateForm(e, form, setForm, setFormError)}
           />
-          {formError ? <p className="formError">{formError}</p> :
-            <Button type="submit" className="login-button" disabled={!formValid(form, formError)}>
-              Login
-            </Button>
-          }
+        </div>
+        <div className="bottom">
+          <Button type="submit" className="form-btn" disabled={!formValid(form, formError)}>
+            Login
+          </Button>
         </div>
       </form>
-    </>
+    </div>
   )
 }
 
