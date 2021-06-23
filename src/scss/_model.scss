@@ -55,11 +55,16 @@
 
     .formError {
       height: 88px;
-      color: $color-2;
+      color: $error;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+    }
+
+    .login-button {
+      padding: 6px 20px;
+      margin-top: 52px;
     }
   }
 }

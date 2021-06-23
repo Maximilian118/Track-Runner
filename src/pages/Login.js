@@ -43,8 +43,8 @@ const Login = ({ history }) => {
             onChange={e => updateForm(e, form, setForm, setFormError)}
           />
           {formError ? <p className="formError">{formError}</p> :
-            <Button type="submit" disabled={!formValid(form, formError)}style={{ padding: "6px 20px" }}>
-              Sign Up
+            <Button type="submit" className="login-button" disabled={!formValid(form, formError)}>
+              Login
             </Button>
           }
         </div>
