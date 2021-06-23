@@ -109,6 +109,24 @@ body {
       justify-content: center;
       align-items: center;
       color: $color-2;
+      
+      a {
+        color: $color-2;
+        height: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1px 0 0 5px;
+
+        &:hover {
+          color: black;
+        }
+      }
+
+      svg {
+        height: 10px;
+        width: 10px;
+      }
     }
   }
 }
