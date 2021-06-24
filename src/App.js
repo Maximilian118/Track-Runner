@@ -20,8 +20,8 @@ const theme = createMuiTheme({
 });
 
 const App = () => {
-  const [loading, setLoading] = useState(false)
-  const [user, setUser] = useState(checkLocalStorage())
+  const [ loading, setLoading ] = useState(false)
+  const [ user, setUser ] = useState(checkLocalStorage())
 
   // If in develop mode, console log every time any state used in context is mutated. 
   process.env.NODE_ENV === 'development' && console.log({loading, user})

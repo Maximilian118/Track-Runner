@@ -1,3 +1,6 @@
+import React from "react"
+
+// Update formErrors on each keystroke.
 export const updateForm = (e, form, setForm, formError, setFormError) => {
   setForm({...form, [e.target.name]: e.target.value})
   switch (e.target.name) {
@@ -49,6 +52,16 @@ export const updateForm = (e, form, setForm, formError, setFormError) => {
   }
 }
 
+// Check for formErrors and backendErrors.
+export const errorCheck = (formError, backendError, type) => {
+  if (backendError.type === type) {
+    return <h6 className="form-error">{backendError.message}</h6>
+  } else {
+    return formError[type] ? <h6 className="form-error">{formError[type]}</h6> : ""
+  }
+}
+
+// Determine whether a form is valid for submission.
 export const formValid = (form, formError) => {
   for (const keys in form) {
     if (form[keys] === "") {

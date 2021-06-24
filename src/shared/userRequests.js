@@ -2,7 +2,7 @@ import axios from 'axios'
 import { logInSuccess, logout } from './localStorage'
 import { useTokens, populatedUser, headers } from './utility'
 
-export const createUser = (form, user, setUser, setLocalLoading) => {
+export const createUser = (form, user, setUser, setLocalLoading, setBackendError) => {
   setLocalLoading(true)
 
   axios.post('', {
@@ -39,12 +39,13 @@ export const createUser = (form, user, setUser, setLocalLoading) => {
     }
 
   }).catch(err => {
-    process.env.NODE_ENV === 'development' && console.log(err.response.data.errors[0].message)
+    process.env.NODE_ENV === 'development' && console.log(JSON.parse(err.response.data.errors[0].message))
+    setBackendError(JSON.parse(err.response.data.errors[0].message))
     setLocalLoading(false)
   })
 }
 
-export const login = (form, user, setUser, setLocalLoading, history) => {
+export const login = (form, user, setUser, setLocalLoading, setBackendError, history) => {
   setLocalLoading(true)
 
   axios.post('', {
@@ -74,7 +75,8 @@ export const login = (form, user, setUser, setLocalLoading, history) => {
     }
 
   }).catch(err => {
-    process.env.NODE_ENV === 'development' && console.log(err.response.data.errors[0].message)
+    process.env.NODE_ENV === 'development' && console.log(JSON.parse(err.response.data.errors[0].message))
+    setBackendError(JSON.parse(err.response.data.errors[0].message))
     setLocalLoading(false)
   })
 }

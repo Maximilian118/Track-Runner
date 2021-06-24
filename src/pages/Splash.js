@@ -3,13 +3,17 @@ import { Context } from '../App'
 import { Link } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { updateForm, formValid } from '../shared/formValidation'
+import { updateForm, errorCheck, formValid } from '../shared/formValidation'
 import { createUser } from '../shared/userRequests'
 import Spinner from '../components/Spinner';
 
 const Splash = () => {
   const { user, setUser } = useContext(Context)
   const [ localLoading, setLocalLoading ] = useState(false)
+  const [ backendError, setBackendError ] = useState({
+    type: "",
+    message: "",
+  })
   const [ form, setForm ] = useState({
     name: "",
     email: "",
@@ -25,7 +29,7 @@ const Splash = () => {
 
   const onSubmitHandler = e => {
     e.preventDefault()
-    createUser(form, user, setUser, setLocalLoading)
+    createUser(form, user, setUser, setLocalLoading, setBackendError)
   }
 
   return (
@@ -40,48 +44,48 @@ const Splash = () => {
             <div className="middle-row">
               <TextField 
                 required
-                error={!!formError.name && !!formError.name}
+                error={!!errorCheck(formError, backendError, "name")}
                 label="Name"
                 name="name"
                 style={{ width: "100%" }} 
                 onChange={e => updateForm(e, form, setForm, formError, setFormError)}
               />
-              {formError.name && <h6 className="form-error">{formError.name}</h6>}
+              {errorCheck(formError, backendError, "name")}
             </div>
             <div className="middle-row">
               <TextField 
                 required
-                error={!!formError.email && !!formError.email}
+                error={!!errorCheck(formError, backendError, "email")}
                 label="Email"
                 name="email"
                 style={{ width: "100%" }} 
                 onChange={e => updateForm(e, form, setForm, formError, setFormError)}
               />
-              {formError.email && <h6 className="form-error">{formError.email}</h6>}
+              {errorCheck(formError, backendError, "email")}
             </div>
             <div className="middle-row">
               <TextField 
                 required
-                error={!!formError.password && !!formError.password}
+                error={!!errorCheck(formError, backendError, "password")}
                 label="Password" 
                 name="password"
                 type="password" 
                 style={{ width: "100%" }} 
                 onChange={e => updateForm(e, form, setForm, formError, setFormError)}
               />
-              {formError.password && <h6 className="form-error">{formError.password}</h6>}
+              {errorCheck(formError, backendError, "password")}
             </div>
             <div className="middle-row">
               <TextField 
                 required
-                error={!!formError.passConfirm && !!formError.passConfirm}
+                error={!!errorCheck(formError, backendError, "passConfirm")}
                 label="Password Check" 
                 name="passConfirm"
                 type="password"
                 style={{ width: "100%" }} 
                 onChange={e => updateForm(e, form, setForm, formError, setFormError)}
               />
-              {formError.passConfirm && <h6 className="form-error">{formError.passConfirm}</h6>}
+              {errorCheck(formError, backendError, "passConfirm")}
             </div>
           </div>
           <div className="bottom">
