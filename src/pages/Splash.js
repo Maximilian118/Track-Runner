@@ -8,8 +8,13 @@ import { createUser } from '../shared/userRequests'
 
 const Splash = () => {
   const { user, setUser, setLoading } = useContext(Context)
-  const [ formError, setFormError ] = useState("")
   const [ form, setForm ] = useState({
+    name: "",
+    email: "",
+    password: "",
+    passConfirm: "",
+  })
+  const [ formError, setFormError ] = useState({
     name: "",
     email: "",
     password: "",
@@ -28,40 +33,52 @@ const Splash = () => {
           <h3>Create An Account</h3>
         </div>
         <div className="middle">
-          <TextField 
-            required
-            error={formError.includes("name")}
-            label="Name"
-            name="name"
-            style={{ width: "100%", marginBottom: 20 }} 
-            onChange={e => updateForm(e, form, setForm, setFormError)}
-          />
-          <TextField 
-            required
-            error={formError.includes("email")}
-            label="Email"
-            name="email"
-            style={{ width: "100%", marginBottom: 20 }} 
-            onChange={e => updateForm(e, form, setForm, setFormError)}
-          />
-          <TextField 
-            required
-            error={formError.includes("Your password")}
-            label="Password" 
-            name="password"
-            type="password" 
-            style={{ width: "100%", marginBottom: 20 }} 
-            onChange={e => updateForm(e, form, setForm, setFormError)}
-          />
-          <TextField 
-            required
-            error={formError.includes("do not match")}
-            label="Password Check" 
-            name="passConfirm"
-            type="password"
-            style={{ width: "100%" }} 
-            onChange={e => updateForm(e, form, setForm, setFormError)}
-          />
+          <div className="middle-row">
+            <TextField 
+              required
+              error={!!formError.name && !!formError.name}
+              label="Name"
+              name="name"
+              style={{ width: "100%"}} 
+              onChange={e => updateForm(e, form, setForm, formError, setFormError)}
+            />
+            {formError.name && <h6 className="form-error">{formError.name}</h6>}
+          </div>
+          <div className="middle-row">
+            <TextField 
+              required
+              error={!!formError.email && !!formError.email}
+              label="Email"
+              name="email"
+              style={{ width: "100%"}} 
+              onChange={e => updateForm(e, form, setForm, formError, setFormError)}
+            />
+            {formError.email && <h6 className="form-error">{formError.email}</h6>}
+          </div>
+          <div className="middle-row">
+            <TextField 
+              required
+              error={!!formError.password && !!formError.password}
+              label="Password" 
+              name="password"
+              type="password" 
+              style={{ width: "100%"}} 
+              onChange={e => updateForm(e, form, setForm, formError, setFormError)}
+            />
+            {formError.password && <h6 className="form-error">{formError.password}</h6>}
+          </div>
+          <div className="middle-row">
+            <TextField 
+              required
+              error={!!formError.passConfirm && !!formError.passConfirm}
+              label="Password Check" 
+              name="passConfirm"
+              type="password"
+              style={{ width: "100%" }} 
+              onChange={e => updateForm(e, form, setForm, formError, setFormError)}
+            />
+            {formError.passConfirm && <h6 className="form-error">{formError.passConfirm}</h6>}
+          </div>
         </div>
         <div className="bottom">
           <Button type="submit" disabled={!formValid(form, formError)} className="form-btn">
