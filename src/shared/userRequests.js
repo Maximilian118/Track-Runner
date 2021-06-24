@@ -2,8 +2,8 @@ import axios from 'axios'
 import { logInSuccess, logout } from './localStorage'
 import { useTokens, populatedUser, headers } from './utility'
 
-export const createUser = (form, user, setUser, setLoading) => {
-  setLoading(true)
+export const createUser = (form, user, setUser, setLocalLoading) => {
+  setLocalLoading(true)
 
   axios.post('', {
     variables: {
@@ -38,15 +38,14 @@ export const createUser = (form, user, setUser, setLoading) => {
       process.env.NODE_ENV === 'development' && console.log(res)
     }
 
-    setLoading(false)
   }).catch(err => {
     process.env.NODE_ENV === 'development' && console.log(err.response.data.errors[0].message)
-    setLoading(false)
+    setLocalLoading(false)
   })
 }
 
-export const login = (form, user, setUser, setLoading, history) => {
-  setLoading(true)
+export const login = (form, user, setUser, setLocalLoading, history) => {
+  setLocalLoading(true)
 
   axios.post('', {
     variables: {
@@ -74,10 +73,9 @@ export const login = (form, user, setUser, setLoading, history) => {
       process.env.NODE_ENV === 'development' && console.log(res)
     }
 
-    setLoading(false)
   }).catch(err => {
     process.env.NODE_ENV === 'development' && console.log(err.response.data.errors[0].message)
-    setLoading(false)
+    setLocalLoading(false)
   })
 }
 
