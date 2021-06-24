@@ -7,8 +7,11 @@ import { login } from '../shared/userRequests'
 
 const Login = ({ history }) => {
   const { user, setUser, setLoading } = useContext(Context)
-  const [ formError, setFormError ] = useState("")
   const [ form, setForm ] = useState({
+    email: "",
+    password: "",
+  })
+  const [ formError, setFormError ] = useState({
     email: "",
     password: "",
   })
@@ -25,23 +28,29 @@ const Login = ({ history }) => {
           <h3>Login</h3>
         </div>
         <div className="middle">
-          <TextField 
-            required
-            error={formError.includes("email")}
-            label="Email"
-            name="email"
-            style={{ width: "100%", marginBottom: 20 }} 
-            onChange={e => updateForm(e, form, setForm, setFormError)}
-          />
-          <TextField 
-            required
-            error={formError.includes("Your password")}
-            label="Password" 
-            name="password"
-            type="password" 
-            style={{ width: "100%" }} 
-            onChange={e => updateForm(e, form, setForm, setFormError)}
-          />
+          <div className="middle-row">
+            <TextField 
+              required
+              error={!!formError.email && !!formError.email}
+              label="Email"
+              name="email"
+              style={{ width: "100%"}} 
+              onChange={e => updateForm(e, form, setForm, formError, setFormError)}
+            />
+            {formError.email && <h6 className="form-error">{formError.email}</h6>}
+          </div>
+          <div className="middle-row">
+            <TextField 
+              required
+              error={!!formError.password && !!formError.password}
+              label="Password" 
+              name="password"
+              type="password" 
+              style={{ width: "100%" }} 
+              onChange={e => updateForm(e, form, setForm, formError, setFormError)}
+            />
+            {formError.password && <h6 className="form-error">{formError.password}</h6>}
+          </div>
         </div>
         <div className="bottom">
           <Button type="submit" className="form-btn" disabled={!formValid(form, formError)}>
