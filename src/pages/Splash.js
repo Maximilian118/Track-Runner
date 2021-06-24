@@ -39,7 +39,7 @@ const Splash = () => {
               error={!!formError.name && !!formError.name}
               label="Name"
               name="name"
-              style={{ width: "100%"}} 
+              style={{ width: "100%" }} 
               onChange={e => updateForm(e, form, setForm, formError, setFormError)}
             />
             {formError.name && <h6 className="form-error">{formError.name}</h6>}
@@ -50,7 +50,7 @@ const Splash = () => {
               error={!!formError.email && !!formError.email}
               label="Email"
               name="email"
-              style={{ width: "100%"}} 
+              style={{ width: "100%" }} 
               onChange={e => updateForm(e, form, setForm, formError, setFormError)}
             />
             {formError.email && <h6 className="form-error">{formError.email}</h6>}
@@ -62,7 +62,7 @@ const Splash = () => {
               label="Password" 
               name="password"
               type="password" 
-              style={{ width: "100%"}} 
+              style={{ width: "100%" }} 
               onChange={e => updateForm(e, form, setForm, formError, setFormError)}
             />
             {formError.password && <h6 className="form-error">{formError.password}</h6>}

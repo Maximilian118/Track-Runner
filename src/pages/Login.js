@@ -34,7 +34,7 @@ const Login = ({ history }) => {
               error={!!formError.email && !!formError.email}
               label="Email"
               name="email"
-              style={{ width: "100%"}} 
+              style={{ width: "100%" }} 
               onChange={e => updateForm(e, form, setForm, formError, setFormError)}
             />
             {formError.email && <h6 className="form-error">{formError.email}</h6>}
