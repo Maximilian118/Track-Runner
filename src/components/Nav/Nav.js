@@ -4,9 +4,17 @@ import ProfilePicture from '../ProfilePicture'
 
 const Nav = ({ user, history }) => 
   <nav>
-    <div className="nav-top">
+    <div className="nav">
       <Link to="/"><h1>Track-Runner</h1></Link>
-      <div className="nav-top-right">
+      {user.token && 
+        <div className="nav-btns">
+          <Link to="/"><h5>Home</h5></Link>
+          <Link to="/cal"><h5>Calandar</h5></Link>
+          <Link to="/profile"><h5>Profile</h5></Link>
+          <Link to="/settings"><h5>Settings</h5></Link>
+        </div>
+      }
+      <div className="nav-right">
         {user.token ? 
           <ProfilePicture user={user} history={history} heightWidth={25}/>
           : history.location.pathname === "/" || history.location.pathname === "/forgot" ? 
@@ -15,14 +23,6 @@ const Nav = ({ user, history }) =>
         }
       </div>
     </div>
-    {user.token && 
-      <div className="nav-bottom">
-        <Link to="/"><h5>Home</h5></Link>
-        <Link to="/cal"><h5>Calandar</h5></Link>
-        <Link to="/profile"><h5>Profile</h5></Link>
-        <Link to="/settings"><h5>Settings</h5></Link>
-      </div>
-    }
   </nav>
 
 export default withRouter(Nav)
