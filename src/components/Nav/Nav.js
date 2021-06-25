@@ -9,7 +9,7 @@ const Nav = ({ user, history }) =>
       <div className="nav-top-right">
         {user.token ? 
           <ProfilePicture user={user} history={history} heightWidth={25}/>
-          : history.location.pathname === "/" ? 
+          : history.location.pathname === "/" || history.location.pathname === "/forgot" ? 
           <Link to="/login"><h5>Login</h5></Link> :
           <Link to="/"><h5>Create An Account</h5></Link>
         }

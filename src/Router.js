@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import Notfound from "./pages/NotFound"
 import Splash from "./pages/Splash"
 import Login from "./pages/Login"
+import Forgot from './pages/Forgot'
 import Home from './pages/Home'
 import Settings from './pages/Settings'
 
@@ -13,6 +14,7 @@ const Router = ({ user }) =>
     {user.token && <Route exact path="/settings" component={Settings}/>}
     {!user.token && <Route exact path="/" component={Splash}/>}
     {!user.token && <Route exact path="/login" component={Login}/>}
+    {!user.token && <Route exact path="/forgot" component={Forgot}/>}
     <Route component={Notfound}/>
   </Switch>
 
