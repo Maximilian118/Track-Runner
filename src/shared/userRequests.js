@@ -32,7 +32,6 @@ export const createUser = (form, user, setUser, setLocalLoading, setBackendError
         profile_picture: "",
         posts: [],
         following: [],
-        calendar: user.calendar,
       }))
 
       process.env.NODE_ENV === 'development' && console.log(res)
@@ -67,7 +66,6 @@ export const login = (form, user, setUser, setLocalLoading, setBackendError, his
       setUser(logInSuccess({
         ...res.data.data.login,
         token: useTokens(res.data.data.login.tokens, user),
-        calendar: res.data.data.login.calendar ? res.data.data.login.calendar : user.calendar,
       }))
 
       history.push("/")

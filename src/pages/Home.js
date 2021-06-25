@@ -3,11 +3,11 @@ import { Context } from '../App'
 import TrackCard from '../components/Cards/TrackCard'
 
 const Home = () => {
-  const { user } = useContext(Context)
+  const { calendar } = useContext(Context)
 
   return (
     <>
-      <TrackCard calendar={user.calendar}/>
+      <TrackCard calendar={calendar}/>
     </>
   )
 }

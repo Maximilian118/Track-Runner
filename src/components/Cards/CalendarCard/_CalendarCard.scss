@@ -18,10 +18,16 @@
     padding: 0 5px;
     overflow-y: hidden;
     flex-shrink: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 
     h6 {
       white-space: nowrap;
     }
+  }
+
+  .top::-webkit-scrollbar { /* Chrome, Safari and Opera */
+    display: none;
   }
 
   .img-wrapper {

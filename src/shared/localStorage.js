@@ -1,4 +1,4 @@
-import { removeKey, defaultCal } from '../shared/utility'
+import { removeKey } from '../shared/utility'
 
 export const checkLocalStorage = () => {
   const token = localStorage.getItem('token')
@@ -12,7 +12,6 @@ export const checkLocalStorage = () => {
     const profile_picture = localStorage.getItem('profile_picture')
     const posts = JSON.parse(localStorage.getItem('posts'))
     const following = JSON.parse(localStorage.getItem('following'))
-    const calendar = JSON.parse(localStorage.getItem('calendar'))
 
     return {
       localStorage: true,
@@ -23,7 +22,6 @@ export const checkLocalStorage = () => {
       profile_picture: profile_picture,
       posts: posts,
       following: following,
-      calendar: calendar,
     }
   }
 }
@@ -37,11 +35,8 @@ export const logout = () => {
   localStorage.removeItem('profile_picture')
   localStorage.removeItem('posts')
   localStorage.removeItem('following')
-  localStorage.removeItem('calendar')
 
-  return { 
-    calendar: defaultCal(),
-  }
+  return {}
 }
 
 export const logInSuccess = userObj => {
@@ -53,7 +48,6 @@ export const logInSuccess = userObj => {
     localStorage.setItem('profile_picture', userObj.profile_picture)
     localStorage.setItem('posts', JSON.stringify(userObj.posts))
     localStorage.setItem('following', JSON.stringify(userObj.following))
-    localStorage.setItem('calendar', JSON.stringify(userObj.calendar))
   }
 
   return removeKey(userObj, "tokens")
