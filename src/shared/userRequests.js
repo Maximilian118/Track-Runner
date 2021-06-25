@@ -81,6 +81,36 @@ export const login = (form, user, setUser, setLocalLoading, setBackendError, his
   })
 }
 
+export const forgot = (email, setLocalLoading, setBackendError, histroy) => {
+  setLocalLoading(true)
+
+  axios.post('', {
+    variables: {
+      email: email,
+    },
+    query: `
+      mutation Forgot($email: String!) {
+        forgot(email: $email) {
+          _id
+        }
+      }
+    `
+  }).then(res => {
+    if (res.data.errors) {
+      process.env.NODE_ENV === 'development' && console.log(res.data.errors[0].message)
+    } else {
+      process.env.NODE_ENV === 'development' && console.log(res)
+    }
+
+    setLocalLoading(false)
+    histroy.push("/forgot-success")
+  }).catch(err => {
+    process.env.NODE_ENV === 'development' && console.log(err)
+    setBackendError(JSON.parse(err.response.data.errors[0].message))
+    setLocalLoading(false)
+  })
+}
+
 export const deleteUser = (user, setUser, setLoading, history) => {
   setLoading(true)
 

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { updateForm, errorCheck, formValid } from '../shared/formValidation'
+import { forgot } from '../shared/userRequests'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Spinner from '../components/Spinner'
 
-const Forgot = () => {
+const Forgot = ({ history }) => {
   const [ localLoading, setLocalLoading ] = useState(false)
   const [ backendError, setBackendError ] = useState({
     type: "",
@@ -19,7 +20,7 @@ const Forgot = () => {
 
   const onSubmitHandler = e => {
     e.preventDefault()
-    console.log("forgot request")
+    forgot(form.email, setLocalLoading, setBackendError, history)
   }
   
   return (
