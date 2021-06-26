@@ -15,10 +15,7 @@ export const createUser = (form, user, setUser, setLocalLoading, setBackendError
     query: `
       mutation CreateUser($name: String!, $email: String!, $password: String!, $passConfirm: String!) {
         createUser(userInput: {name: $name, email: $email, password: $password, pass_confirm: $passConfirm}) {
-          _id
-          tokens
-          name
-          email
+          ${populatedUser}
         }
       }
     `
@@ -29,9 +26,6 @@ export const createUser = (form, user, setUser, setLocalLoading, setBackendError
       setUser(logInSuccess({
         ...res.data.data.createUser,
         token: useTokens(res.data.data.createUser.tokens, user),
-        profile_picture: "",
-        posts: [],
-        following: [],
       }))
 
       process.env.NODE_ENV === 'development' && console.log(res)

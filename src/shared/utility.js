@@ -64,6 +64,19 @@ export const populatedUser = `
   name
   email
   profile_picture
+  events {
+    _id
+    title
+    description
+    startDate
+    endDate
+    img
+    participants {
+      _id
+      name
+      profile_picture
+    }
+  }
   posts {
     _id
     title
