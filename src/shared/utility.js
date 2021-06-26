@@ -57,6 +57,15 @@ export const getInitials = user => {
   return initials
 }
 
+// Handle unknown backend errors.
+export const unknownError = (setBackendError, setLocalLoading) => {
+  setBackendError({
+    type: "email",
+    message: "Oops! Something went wrong!"
+  })
+  setLocalLoading(false)
+}
+
 // User population template literal.
 export const populatedUser = `
   _id
