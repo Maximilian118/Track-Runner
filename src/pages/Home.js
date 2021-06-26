@@ -1,13 +1,9 @@
-import React, { useContext } from 'react'
-import { Context } from '../App'
-import TrackCard from '../components/Cards/TrackCard'
+import React from 'react'
 
 const Home = () => {
-  const { calendar } = useContext(Context)
 
   return (
     <>
-      <TrackCard calendar={calendar}/>
     </>
   )
 }

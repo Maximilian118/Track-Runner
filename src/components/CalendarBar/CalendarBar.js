@@ -4,7 +4,7 @@ import CalendarCard from '../Cards/CalendarCard'
 
 const CalendarBar = ({ calendar }) => 
   <div className="cal-bar">
-    {calendar.map((date, i) => <CalendarCard key={i} date={date} style={{ width: 100 }}/>)}
+    {calendar.map((data, i) => <CalendarCard key={i} data={data}/>)}
   </div>
 
 export default CalendarBar
