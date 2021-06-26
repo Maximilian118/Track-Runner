@@ -2,29 +2,36 @@ import moment from 'moment'
 
 // Return calendar array with default location and img data.
 export const sortCalArr = () => {
-  const callArr = []
+  const lsCal = JSON.parse(localStorage.getItem('cal'))
+  
+  if (lsCal) {
+    return lsCal
+  } else {
+    const calArr = []
 
-  for (let i = 0; i < 100; i++) {
-    const date = moment().add(i, "d").format()
-    let roundData = {}
+    for (let i = 0; i < 100; i++) {
+      const date = moment().add(i, "d").format()
+      let roundData = {}
 
-    f12021.forEach(round => {
-      if (moment(date).isAfter(round.from) && moment(date).isBefore(round.to)) {
-        roundData = {
-          confirmed: true,
-          ...round,
-        }
-      } 
-    })
+      f12021.forEach(round => {
+        if (moment(date).isAfter(round.from) && moment(date).isBefore(round.to)) {
+          roundData = {
+            confirmed: true,
+            ...round,
+          }
+        } 
+      })
 
-    callArr.push({
-      date: date,
-      events: [],
-      ...roundData,
-    })
+      calArr.push({
+        date: date,
+        events: [],
+        ...roundData,
+      })
+    }
+
+    localStorage.setItem('cal', JSON.stringify(calArr))
+    return calArr
   }
-
-  return callArr
 }
 
 const f12021 = [

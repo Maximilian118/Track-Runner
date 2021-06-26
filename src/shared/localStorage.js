@@ -35,6 +35,7 @@ export const logout = () => {
   localStorage.removeItem('profile_picture')
   localStorage.removeItem('posts')
   localStorage.removeItem('following')
+  localStorage.removeItem('cal')
 
   return {}
 }
