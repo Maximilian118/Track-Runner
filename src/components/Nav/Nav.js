@@ -9,7 +9,7 @@ const Nav = ({ user, history }) =>
       {user.token && 
         <div className="nav-btns">
           <Link to="/"><h5>Home</h5></Link>
-          <Link to="/cal"><h5>Calandar</h5></Link>
+          <Link to="/calendar"><h5>Calandar</h5></Link>
           <Link to="/profile"><h5>Profile</h5></Link>
           <Link to="/settings"><h5>Settings</h5></Link>
         </div>

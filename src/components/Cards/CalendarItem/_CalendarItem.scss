@@ -1,0 +1,46 @@
+.cal-item {
+  width: 100px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  flex-shrink: 0;
+  margin: 0 5px;
+  background: rgba($color: #000000, $alpha: 0.04);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+  .top {
+    width: 100%;
+    height: 20px;
+    background: white;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 5px;
+    overflow-y: hidden;
+    flex-shrink: 0;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    h6 {
+      white-space: nowrap;
+    }
+  }
+
+  .top::-webkit-scrollbar { /* Chrome, Safari and Opera */
+    display: none;
+  }
+
+  .img-wrapper {
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      align-self: center;
+    }
+  }
+}

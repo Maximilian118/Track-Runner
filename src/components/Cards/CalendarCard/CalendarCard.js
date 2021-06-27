@@ -1,15 +1,14 @@
 import React from 'react'
 import './_CalendarCard.scss'
-import { formatDate } from '../../../shared/utility'
+import CalendarItem from '../CalendarItem'
 
-const CalendarCard = ({ data }) => 
-  <div className="cal-card">
-    <div className="top">
-      <h6>{`${formatDate(data.date)} ${data.location ? `- ${data.location}` : ``}`}</h6>
+const CalendarCard = ({ calendar }) => (
+  <div className="cal-card-wrapper">
+    <div className="cal-card">
+      {calendar.map((data, i) => <CalendarItem key={i} data={data}/>)}
     </div>
-    {data.logo && <div className="img-wrapper">
-      <img alt="logo" src={data.logo}/>
-    </div>}
+    <div className="top-bottom-fade"/>
   </div>
+)
 
 export default CalendarCard
