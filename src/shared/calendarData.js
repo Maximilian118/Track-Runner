@@ -9,8 +9,10 @@ export const sortCalArr = () => {
   } else {
     const calArr = []
 
-    for (let i = 0; i < 100; i++) {
-      const date = moment().add(i, "d").format()
+    const startDate = moment().subtract(18, "d").format()
+
+    for (let i = 0; i < 365; i++) {
+      const date = moment(startDate).add(i, "d").format()
       let roundData = {}
 
       f12021.forEach(round => {
@@ -121,7 +123,7 @@ const f12021 = [
     country: "Monaco",
     location: "Monte Carlo",
     track: "Circuit De Monaco",
-    logo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwcp-series.com%2Fproducts%2Fmonaco&psig=AOvVaw0_Rtg_DyFfULz_U9IpeWfd&ust=1624727222960000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCIjZsd2is_ECFQAAAAAdAAAAABAD",
+    logo: "https://www.global-tickets.com/Rennstrecken-Tipps/img/imgblock/monaco-grand-prix-logo@2x.png",
     lat: 43.7338,
     lon: 7.4215,
     round: 5,
@@ -139,7 +141,7 @@ const f12021 = [
     country: "Azerbaijan",
     location: "Baku",
     track: "Baku City Circuit",
-    logo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Frocketreach.co%2Fbaku-grand-prix-baku-city-circuit-operations-company-management_b5a4314df6a61edb&psig=AOvVaw2ZeEe9Z4hQhdGJIysvIBYu&ust=1624727363443000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCOC--qGjs_ECFQAAAAAdAAAAABAJ",
+    logo: "https://i.pinimg.com/564x/3c/36/b8/3c36b850c1c5808e7aa9492f75a6d93e.jpg",
     lat: 40.3699,
     lon: 49.8433,
     round: 6,
@@ -157,7 +159,7 @@ const f12021 = [
     country: "France",
     location: "Paul Ricard",
     track: "Circuit Paul Ricard",
-    logo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fm.youtube.com%2Fuser%2FPaulRicardTrack&psig=AOvVaw2xBQJcpmhfzD7gRBuZOy4S&ust=1624728345393000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCMDHrPOms_ECFQAAAAAdAAAAABAD",
+    logo: "https://prod.r3eassets.com/assets/content/track/paul-ricard-2866-logo-original.webp",
     lat: 43.2517,
     lon: 5.7935,
     round: 7,

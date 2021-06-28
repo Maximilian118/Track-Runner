@@ -7,8 +7,8 @@ import Footer from './components/Footer'
 import { checkLocalStorage } from './shared/localStorage'
 import { sortCalArr } from './shared/calendarData'
 import Spinner from './components/Spinner'
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/styles'
 import CalendarBar from './components/CalendarBar'
 
 const Context = React.createContext()
@@ -18,7 +18,7 @@ const theme = createMuiTheme({
     fontFamily: 'Ubuntu',
     fontWeightRegular: 300,
   },
-});
+})
 
 const App = () => {
   const [ loading, setLoading ] = useState(false)

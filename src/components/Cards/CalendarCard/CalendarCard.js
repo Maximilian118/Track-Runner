@@ -2,13 +2,12 @@ import React from 'react'
 import './_CalendarCard.scss'
 import CalendarItem from '../CalendarItem'
 
-const CalendarCard = ({ calendar }) => (
+const CalendarCard = ({ calendar }) => 
   <div className="cal-card-wrapper">
     <div className="cal-card">
       {calendar.map((data, i) => <CalendarItem key={i} data={data}/>)}
     </div>
     <div className="top-bottom-fade"/>
   </div>
-)
 
 export default CalendarCard

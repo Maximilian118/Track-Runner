@@ -34,9 +34,9 @@
     height: 100%;
     pointer-events: none;
     background-image: linear-gradient(to bottom,
-        $background,
-        rgba(245, 245, 245, 0) 5%,
-        rgba(245, 245, 245, 0) 95%,
-        $background 100%);
+      $background,
+      rgba(245, 245, 245, 0) 3%,
+      rgba(245, 245, 245, 0) 97%,
+      $background 100%);
   }
 }
