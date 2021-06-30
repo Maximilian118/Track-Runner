@@ -4,7 +4,7 @@ import moment from 'moment'
 export const sortCalArr = () => {
   const lsCal = JSON.parse(localStorage.getItem('cal'))
   
-  if (lsCal) {
+  if (lsCal && moment(lsCal[18]).isSame(moment().format(), "day")) {
     return lsCal
   } else {
     const calArr = []
