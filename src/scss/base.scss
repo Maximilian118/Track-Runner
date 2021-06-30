@@ -93,9 +93,20 @@ body {
       width: 700px;
       flex-grow: 1;
       display: flex;
-      flex-flow: column nowrap;
       box-sizing: border-box;
       overflow: hidden;
+
+      .page-left, .page-right {
+        width: 250px;
+        flex-grow: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        box-sizing: border-box;
+      }
+
+      .page-right {
+        width: 450px;
+      }
     }
     
     footer {

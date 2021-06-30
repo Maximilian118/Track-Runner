@@ -1,24 +1,25 @@
-@import '../../../scss/variables';
+@import './variables';
 
-.cal-item {
-  width: 100px;
-  height: 100%;
+.card-model {
+  width: calc(100% - 10px);
+  min-height: 100px;
   display: flex;
   flex-flow: column nowrap;
   flex-shrink: 0;
-  margin: 0 5px;
   background: $empty;
-  box-shadow: $shaddow;
   border-radius: 5px;
+  box-shadow: $shaddow;
+  margin: 5px;
+  box-sizing: border-box;
 
   .top {
     width: 100%;
-    height: 20px;
+    height: 30px;
     background: white;
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    padding: 0 5px;
+    padding: 0 10px;
     overflow-y: hidden;
     flex-shrink: 0;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -35,20 +36,12 @@
     display: none;
   }
 
-  .img-wrapper {
+  .bottom {
     width: 100%;
     flex-grow: 1;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+  }
 
-    img {
-      width: 100%;
-      align-self: center;
-    }
+  img {
+    width: 100%;
   }
 }

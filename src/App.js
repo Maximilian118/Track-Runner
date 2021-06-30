@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './scss/base.scss'
 import './scss/_model.scss'
+import './scss/_cardModel.scss'
 import Router from './Router'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
