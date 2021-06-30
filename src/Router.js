@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 
 import Home from "./pages/Home"
 import Calendar from './pages/Calendar'
-import Settings from "./pages/Settings"
+import Profile from "./pages/Profile"
 import Splash from "./pages/Splash"
 import Login from "./pages/Login"
 import Forgot from "./pages/Forgot"
@@ -14,7 +14,7 @@ const Router = ({ user }) =>
   <Switch>
     {user.token && <Route exact path="/" component={Home}/>}
     {user.token && <Route exact path="/calendar" component={Calendar}/>}
-    {user.token && <Route exact path="/settings" component={Settings}/>}
+    {user.token && <Route exact path="/profile" component={Profile}/>}
     {!user.token && <Route exact path="/" component={Splash}/>}
     {!user.token && <Route exact path="/login" component={Login}/>}
     {!user.token && <Route exact path="/forgot" component={Forgot}/>}

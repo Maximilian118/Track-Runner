@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button'
 import { logout } from '../shared/localStorage'
 import { deleteUser } from '../shared/userRequests'
 
-const Settings = ({ history }) => {
+const Profile = ({ history }) => {
   const { user, setUser, setLoading } = useContext(Context)
 
   const logoutHandler = () => {
@@ -16,7 +16,7 @@ const Settings = ({ history }) => {
     <div className="model-wrapper">
       <div className="model">
         <div className="top">
-          <h3>Settings</h3>
+          <h3>Profile</h3>
         </div>
         <div className="bottom">
           <Button onClick={() => logoutHandler()}>Logout</Button>
@@ -27,4 +27,4 @@ const Settings = ({ history }) => {
   )
 }
 
-export default Settings
+export default Profile

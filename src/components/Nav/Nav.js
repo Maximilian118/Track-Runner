@@ -11,7 +11,6 @@ const Nav = ({ user, history }) =>
           <Link to="/"><h5>Home</h5></Link>
           <Link to="/calendar"><h5>Calandar</h5></Link>
           <Link to="/profile"><h5>Profile</h5></Link>
-          <Link to="/settings"><h5>Settings</h5></Link>
         </div>
       }
       <div className="nav-right">
